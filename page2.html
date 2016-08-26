@@ -1,0 +1,11 @@
+<div>
+  <input ng-model="person.name">
+  <div ng-repeat="p in people | filter:person ">
+    <h1>
+      <a href="#/person/{{ p.name }}">
+        {{ p.name | uppercase:12:"a" | uppercase:"":"" }}
+      </a>
+    </h1>
+    <button ng-click="delete(p.name)">delete</button>
+  </div>
+</div>
