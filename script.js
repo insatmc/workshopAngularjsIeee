@@ -2,13 +2,13 @@ var app = angular.module("app",['ngRoute'])
 
 app.config(function($routeProvider) {
   $routeProvider.when("/person/:name",{
-    templateUrl: "page1.html",
+    templateUrl: "partiels/page1.html",
     controller: "page1Ctrl"
   }).when("/listPerson",{
-    templateUrl: "page2.html",
+    templateUrl: "partiels/page2.html",
     controller: "firstCtrl"
   }).when("/addPerson",{
-    templateUrl: "addperson.html",
+    templateUrl: "partiels/addperson.html",
     controller: "addPersonCtrl"
   })
 });
@@ -39,12 +39,11 @@ app.controller("page1Ctrl",function($scope,$routeParams,personService) {
 
 app.service("personService",function($http){
   this.listPerson = function() {
-    return $http.get("people.json")
+    return $http.get("fake-backend/people.json")
   }
 })
 
 app.filter("uppercase",function(){
-
   return function(x,p1,p2) {
     return x.toUpperCase() + p1 + p2
   }
